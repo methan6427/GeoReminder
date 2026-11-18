@@ -27,12 +27,14 @@ fi
 src() { GH_TOKEN="$SRC_TOKEN" gh "$@"; }
 
 # Published, non-draft, non-prerelease tags of the app, oldest version first.
-mapfile -t source_tags < <(
+# Each listing is read into a variable first: a failed call then stops the script, where
+# `mapfile < <(...)` would hide the failure and carry on with an empty list.
+listing="$(
   src release list -R "$SOURCE_REPO" --limit 200 \
     --json tagName,isDraft,isPrerelease \
-    --jq '.[] | select((.isDraft | not) and (.isPrerelease | not)) | .tagName' |
-    sort -V
-)
+    --jq '.[] | select((.isDraft | not) and (.isPrerelease | not)) | .tagName'
+)"
+mapfile -t source_tags < <(printf '%s\n' "$listing" | sed '/^$/d' | sort -V)
 if (( ${#source_tags[@]} == 0 )); then
   echo "No published releases in $SOURCE_REPO."
   exit 0
@@ -41,10 +43,11 @@ newest="${source_tags[-1]}"
 
 # Published releases here are done. A draft here is what an interrupted upload leaves
 # behind; it is removed and made again.
-mapfile -t mirrored < <(
+listing="$(
   gh release list -R "$REPO" --limit 200 --json tagName,isDraft \
     --jq '.[] | (if .isDraft then "draft " else "done " end) + .tagName'
-)
+)"
+mapfile -t mirrored < <(printf '%s\n' "$listing" | sed '/^$/d')
 declare -A have=()
 declare -A draft=()
 for line in "${mirrored[@]}"; do
@@ -65,15 +68,14 @@ for tag in "${source_tags[@]}"; do
   dir="$work/$tag"
   mkdir -p "$dir"
 
-  # gh exits non-zero when no asset matches; that case is reported just below.
-  src release download "$tag" -R "$SOURCE_REPO" -p '*.apk' -D "$dir" || true
-  shopt -s nullglob
-  apks=("$dir"/*.apk)
-  shopt -u nullglob
-  if (( ${#apks[@]} == 0 )); then
+  apk_names="$(src release view "$tag" -R "$SOURCE_REPO" --json assets \
+    --jq '.assets[].name | select(endswith(".apk"))')"
+  if [[ -z "$apk_names" ]]; then
     echo "::warning::$tag has no APK in $SOURCE_REPO; skipped."
     continue
   fi
+  src release download "$tag" -R "$SOURCE_REPO" -p '*.apk' -D "$dir"
+  apks=("$dir"/*.apk)
 
   title="$(src release view "$tag" -R "$SOURCE_REPO" --json name --jq '.name')"
   [[ -n "$title" ]] || title="GeoReminder $tag"
