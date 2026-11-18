@@ -39,9 +39,19 @@ if (( ${#source_tags[@]} == 0 )); then
 fi
 newest="${source_tags[-1]}"
 
-mapfile -t mirrored < <(gh release list -R "$REPO" --limit 200 --json tagName --jq '.[].tagName')
+# Published releases here are done. A draft here is what an interrupted upload leaves
+# behind; it is removed and made again.
+mapfile -t mirrored < <(
+  gh release list -R "$REPO" --limit 200 --json tagName,isDraft \
+    --jq '.[] | (if .isDraft then "draft " else "done " end) + .tagName'
+)
 declare -A have=()
-for t in "${mirrored[@]}"; do have["$t"]=1; done
+declare -A draft=()
+for line in "${mirrored[@]}"; do
+  state="${line%% *}"
+  t="${line#* }"
+  if [[ "$state" == "done" ]]; then have["$t"]=1; else draft["$t"]=1; fi
+done
 
 work="$(mktemp -d)"
 trap 'rm -rf "$work"' EXIT
@@ -88,6 +98,10 @@ for tag in "${source_tags[@]}"; do
   if [[ "$DRY_RUN" == "1" ]]; then
     echo "Would create $tag ($title) $latest_flag with: ${apks[*]##*/}"
   else
+    if [[ -n "${draft[$tag]:-}" ]]; then
+      echo "Removing the unfinished draft of $tag"
+      gh release delete "$tag" -R "$REPO" --yes --cleanup-tag
+    fi
     gh release create "$tag" "${apks[@]}" -R "$REPO" \
       --title "$title" --notes-file "$notes" --target main "$latest_flag"
   fi
