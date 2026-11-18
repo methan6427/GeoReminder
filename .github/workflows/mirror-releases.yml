@@ -1,0 +1,40 @@
+name: Mirror releases
+
+# Copies new app releases from the private source repository into this one, so anyone
+# can download the APK. Runs every hour and can be started by hand from the Actions tab.
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: mirror-releases
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Mirror new releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SRC_TOKEN: ${{ secrets.SOURCE_RELEASES_TOKEN }}
+          SOURCE_REPO: methan6427/GeoReminder-flutter
+          REPO: ${{ github.repository }}
+        run: bash scripts/mirror-releases.sh
+
+      # GitHub turns scheduled workflows off after 60 days without activity in a public
+      # repository. Enabling the workflow again on each run keeps the schedule alive.
+      - name: Keep the schedule enabled
+        if: github.event_name == 'schedule'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/mirror-releases.yml/enable"

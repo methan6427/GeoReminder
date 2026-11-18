@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: User guide
+    url: https://github.com/methan6427/GeoReminder/blob/main/docs/user-guide.md
+    about: How each screen works.
+  - name: Troubleshooting
+    url: https://github.com/methan6427/GeoReminder/blob/main/docs/troubleshooting.md
+    about: Late or missing reminders, battery settings, the car not being noticed.
