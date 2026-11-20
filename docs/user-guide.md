@@ -1,6 +1,6 @@
 # User guide
 
-[Back to the README](../README.md) · This guide describes version 0.8.3.
+[Back to the README](../README.md) · This guide describes version 0.8.4.
 
 1. [The idea in one minute](#the-idea-in-one-minute)
 2. [The main screens](#the-main-screens)
@@ -52,7 +52,7 @@ The bar at the bottom has four tabs:
 | Tab | What it shows |
 |---|---|
 | **Trips** | Your trips, in three tabs: Active, Upcoming and History. The button at the top joins a shared trip. |
-| **Map** | The active trip's tasks as pins on a map. |
+| **Map** | Every active trip's tasks as pins on a map, each trip in its own colour. |
 | **Calendar** | Not used yet. The calendar comes in a later version. |
 | **Settings** | Frequent places, Reminders setup and Appearance. |
 
@@ -78,7 +78,9 @@ phone's setting. The choice is kept after closing the app.
 | **Upcoming** | Trips planned for a later day. |
 | **History** | Finished trips. They are read-only and show the day they were finished. |
 
-Each trip card shows how many tasks are done, for example "2 of 5 done".
+Each trip card shows how many tasks are done, for example "2 of 5 done". Active and
+Upcoming cards have a dot in the trip's colour, the same colour as its pins on the map. A
+new trip gets the colour the fewest active trips use; with more than eight, colours repeat.
 
 ### A trip's status
 
@@ -179,18 +181,25 @@ The place picker opens from the task form.
 
 ## The Map tab
 
-The Map tab shows the active trip's tasks as pins, in the same colours as the task list:
+The Map tab shows the tasks of every active trip at once. Each trip has its own colour, and
+its pins are filled with it. The icon on a pin says the task's state:
 
 | Pin | Meaning |
 |---|---|
-| Green tick | Done |
-| Orange, with its name | Next up |
-| Grey lock | Locked |
-| Blue number | Open |
+| Number | Open, can be done now |
+| Larger, with its name under it | The trip's next task |
+| Lock | Waits for another task |
+| Tick | Done (faded when every trip is shown) |
 
-- Tasks not done yet show their reminder circle. The map frames all the pins.
-- With several active trips, a menu at the top picks which one to show.
-- Tap a pin to see the task below the map, with **Complete** and **Navigate**. Navigate opens
+- Tasks not done yet show their reminder circle in the trip's colour. The map frames all
+  the pins.
+- With more than one active trip, a row under the title picks **All** or one trip. Each
+  chip shows its trip's colour, so the row is also the key to the pins. With one active
+  trip there is no row and the title is the trip's name.
+- With All shown, the card under the map says how many trips there are and how many tasks
+  are left, until you tap a pin.
+- Tap a pin to see the task below the map, with its trip's name, **Complete** and
+  **Navigate**. Navigate opens
   the place in your phone's maps app (GeoReminder itself does no turn-by-turn navigation).
   Complete on a locked task says what to complete first, and **Go to** moves the map there.
 - With no active trip, the map still shows, with "No active trip" and **Go to trips**.
@@ -404,7 +413,7 @@ On the code screen, **Stop sharing** at the bottom asks first and names who will
 - If stopping fails (offline, server waking up), the trip stays shared and you can try again.
 - Only the person who shared the trip can stop sharing it.
 
-### What sharing does not do yet (v0.8.3)
+### What sharing does not do yet (v0.8.4)
 
 - Changes arrive live only while the app is open. A closed phone catches up when it opens.
 - A task completed offline doesn't say it is still waiting to be sent; it just shows as done.

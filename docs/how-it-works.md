@@ -3,7 +3,7 @@
 [Back to the README](../README.md)
 
 A technical overview for readers who want to know what is inside the app. The source code
-is in a private repository; this page describes it as of **v0.8.3**.
+is in a private repository; this page describes it as of **v0.8.4**.
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -294,7 +294,7 @@ migrations with automated SQL tests in the backend repository.
 Every release in this repository is built automatically:
 
 1. Each change to the app goes through automated checks: formatting, static analysis and
-   the full test suite (942 tests at v0.8.3).
+   the full test suite (961 tests at v0.8.4).
 2. When a version is merged, the pipeline builds the Android APK and publishes a release
    with its notes in the private source repository.
 3. A scheduled job in this repository copies each new release here, with the same notes,

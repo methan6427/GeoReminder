@@ -12,6 +12,13 @@ numbered `v0.<sprint>.<fix>`. The full notes of every version, with its APK, are
 
 ## Released
 
+### v0.8.4: every trip on one map
+
+- **All active trips at once.** The Map tab shows every active trip's tasks, each trip in
+  its own colour; the pin's icon shows open, next, locked or done.
+- **Filter.** With more than one active trip, a row of chips picks All or one trip.
+- **Trip colours on Home.** Active and Upcoming cards have a dot in the trip's colour.
+
 ### v0.8.3: your position on the map
 
 - **Blue dot.** The Map tab shows where you are, with a circle as wide as the GPS accuracy,
@@ -133,7 +140,6 @@ Plans can change. Each item lists the version it is planned for.
 
 Also planned, as small updates before v0.9:
 
-- **v0.8.4**: every active trip on the map at once, each in its own colour, with a filter.
 - **v0.8.5**: the app in Arabic.
 - **v0.8.6**: an Arabic voice for Trip Mode, and a choice of voices with samples.
 
