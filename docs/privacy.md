@@ -36,7 +36,8 @@ Everything is kept in the app's private storage on the phone. Other apps can't r
 
 Only that one last position is kept, and it is replaced each time. There is no history of
 where you have been. Trip Mode reads your position while it is open to show the distance to
-the next stop, and does not save it.
+the next stop, and does not save it. The Map tab reads your position and the compass only
+while it is on screen, to draw the blue dot and its cone; neither is saved.
 
 ## What goes over the internet
 

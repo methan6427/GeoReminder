@@ -12,6 +12,14 @@ numbered `v0.<sprint>.<fix>`. The full notes of every version, with its APK, are
 
 ## Released
 
+### v0.8.3: your position on the map
+
+- **Blue dot.** The Map tab shows where you are, with a circle as wide as the GPS accuracy,
+  and a button that moves the map to you.
+- **Direction.** A cone on the dot points the way the phone faces; while moving fast it
+  follows the direction of travel.
+- **Battery.** Location and the compass run only while the Map tab is on screen.
+
 ### v0.8.2: first-launch setup, light and dark
 
 - **Permissions on the first launch.** The first time the app opens, it walks through the
@@ -125,7 +133,6 @@ Plans can change. Each item lists the version it is planned for.
 
 Also planned, as small updates before v0.9:
 
-- **v0.8.3**: your own position on the map, with the direction you are facing.
 - **v0.8.4**: every active trip on the map at once, each in its own colour, with a filter.
 - **v0.8.5**: the app in Arabic.
 - **v0.8.6**: an Arabic voice for Trip Mode, and a choice of voices with samples.

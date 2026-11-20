@@ -65,11 +65,12 @@ Full steps, including how to allow the install and how to update: **[docs/instal
 
 ## Status
 
-GeoReminder is under active development. The current version (**v0.8.2**) works fully on one
+GeoReminder is under active development. The current version (**v0.8.3**) works fully on one
 phone (trips, tasks, map, reminders, Trip Mode) and shares a trip with other phones by a join
 code. On a shared trip, completions show on every phone live, and a task completed with no
 connection is sent when the phone is back online. Each done task shows who completed it.
 The app offers its permission setup on the first launch and has a light and a dark mode.
+The map shows where you are, with the direction you are facing.
 Next come a calendar, repeating trips and road distance. See the [roadmap](docs/roadmap.md).
 
 Found a problem? [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose)

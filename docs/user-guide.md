@@ -1,6 +1,6 @@
 # User guide
 
-[Back to the README](../README.md) · This guide describes version 0.8.2.
+[Back to the README](../README.md) · This guide describes version 0.8.3.
 
 1. [The idea in one minute](#the-idea-in-one-minute)
 2. [The main screens](#the-main-screens)
@@ -194,7 +194,16 @@ The Map tab shows the active trip's tasks as pins, in the same colours as the ta
   the place in your phone's maps app (GeoReminder itself does no turn-by-turn navigation).
   Complete on a locked task says what to complete first, and **Go to** moves the map there.
 - With no active trip, the map still shows, with "No active trip" and **Go to trips**.
-- Your own position is not shown on the map yet.
+- **Your position.** A blue dot shows where the phone is, with a light circle as wide as the
+  GPS accuracy. A blue cone on the dot points the way the phone faces (lying flat or held
+  up); while you drive or cycle it follows the road instead. A phone without a compass
+  shows the dot without a cone.
+- The button at the bottom right moves the map to the dot. Before the first position it
+  says it is still looking; with location off or not allowed it shows a crossed-out icon
+  and points to Settings > Reminders.
+- With no active trip the map moves to you once, when it first knows your position. With a
+  trip it stays framed on the pins until you press the button. The map stays north-up.
+- Location and the compass run only while the Map tab is on screen.
 
 The map is OpenStreetMap. "© OpenStreetMap contributors" in the corner opens its copyright
 page.
@@ -395,7 +404,7 @@ On the code screen, **Stop sharing** at the bottom asks first and names who will
 - If stopping fails (offline, server waking up), the trip stays shared and you can try again.
 - Only the person who shared the trip can stop sharing it.
 
-### What sharing does not do yet (v0.8.2)
+### What sharing does not do yet (v0.8.3)
 
 - Changes arrive live only while the app is open. A closed phone catches up when it opens.
 - A task completed offline doesn't say it is still waiting to be sent; it just shows as done.
@@ -418,6 +427,5 @@ These are being built now; see the [roadmap](roadmap.md):
 - The calendar and repeating trips.
 - History details, and moving trips to another phone with a file.
 - Road distance in the suggested order.
-- Your own position on the map.
 - Settings for terms, privacy, deleting all data, and an about page.
 - The iPhone download.

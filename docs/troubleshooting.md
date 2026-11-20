@@ -10,6 +10,7 @@
 - [A trip planned for today does not remind](#a-trip-planned-for-today-does-not-remind)
 - [I can't complete a task](#i-cant-complete-a-task)
 - [My car is not noticed](#my-car-is-not-noticed)
+- [No blue dot on the map](#no-blue-dot-on-the-map)
 - [Trip Mode says "Location unavailable"](#trip-mode-says-location-unavailable)
 - [The map is blank or grey](#the-map-is-blank-or-grey)
 - [Address search finds nothing](#address-search-finds-nothing)
@@ -114,6 +115,17 @@ Trip Mode offers itself when the phone connects to the car by Bluetooth. If it d
    **Not now**, it is not asked again until the app is restarted.
 6. Trip Mode already open: nothing is offered.
 
+## No blue dot on the map
+
+- The button at the bottom right shows a crossed-out icon when location is off or not
+  allowed. Turn on location for the phone and allow it for GeoReminder
+  (Settings > Reminders).
+- With Google Location Accuracy off, Android asks to turn it on when the Map tab opens.
+  After **No thanks** the map has no dot; pressing the button asks again.
+- Indoors the first position can take a while; the button says it is still looking.
+- If the cone points the wrong way, move the phone in a figure eight away from metal and
+  magnets to calibrate the compass.
+
 ## Trip Mode says "Location unavailable"
 
 Trip Mode still works without your position; it just can't show the distance.
@@ -196,7 +208,7 @@ sharing** on the code screen to edit it again.
 [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose) and include:
 
 - phone model and Android version
-- app version (the release you downloaded, for example v0.8.2)
+- app version (the release you downloaded, for example v0.8.3)
 - what you did, what you expected and what happened
 - for reminders: the task's radius, **Arrive/Leave/Both**, and whether battery was set to
   Unrestricted
