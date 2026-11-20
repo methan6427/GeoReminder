@@ -138,6 +138,36 @@ the pin and save a place in the place picker, and reminders still come.
 - Results near the pin come first. Move the pin closer to the area, then search again.
 - Search needs the internet. Without it, drag the map to the place instead.
 
+## Sharing says I'm offline
+
+Sharing, joining and stopping sharing need an internet connection; nothing changes on the
+phone or the server until they work. Check mobile data or Wi-Fi and tap **Try again**. The
+rest of the app works offline.
+
+## Sharing says the server is waking up
+
+The sharing server is on a free plan that goes to sleep after about a week without use. The
+first request after that can fail with "The server is waking up". Wait a minute and try
+again. If it keeps failing for more than a few minutes, [open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose).
+
+## The join code doesn't work
+
+- "That code is wrong or has expired.": a code works for **10 minutes**. Ask the owner to tap
+  **New code** and send it again.
+- Check the six letters and digits.
+- "This trip is full.": a shared trip holds at most 10 people.
+
+## A task I completed doesn't show on the other phone
+
+In v0.7.0 a joined trip is a copy taken when you joined. Completions don't travel between
+phones yet, and the participants list changes only when you tap refresh. Both become live in
+v0.8. See the [roadmap](roadmap.md).
+
+## I can't edit a shared trip
+
+A shared trip is read-only, so everyone's copy stays the same. The owner can **Stop
+sharing** on the code screen to edit it again.
+
 ## Android won't install the APK
 
 - **"Install blocked" / "For your security…":** allow installs for the browser or file
@@ -152,7 +182,7 @@ the pin and save a place in the place picker, and reminders still come.
 [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose) and include:
 
 - phone model and Android version
-- app version (the release you downloaded, for example v0.6.2)
+- app version (the release you downloaded, for example v0.7.0)
 - what you did, what you expected and what happened
 - for reminders: the task's radius, **Arrive/Leave/Both**, and whether battery was set to
   Unrestricted

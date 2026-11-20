@@ -3,7 +3,7 @@
 [Back to the README](../README.md)
 
 A technical overview for readers who want to know what is inside the app. The source code
-is in a private repository; this page describes it as of **v0.6.2**.
+is in a private repository; this page describes it as of **v0.7.0**.
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -14,7 +14,7 @@ is in a private repository; this page describes it as of **v0.6.2**.
 - [Trip Mode](#trip-mode)
 - [Storage](#storage)
 - [Map and search](#map-and-search)
-- [Planned: sharing a trip](#planned-sharing-a-trip)
+- [Sharing a trip](#sharing-a-trip)
 - [How releases are built](#how-releases-are-built)
 
 ## Overview
@@ -29,7 +29,7 @@ is in a private repository; this page describes it as of **v0.6.2**.
 | Map | OpenStreetMap through `flutter_map` |
 | Reminders | the operating system's geofencing through `native_geofence`, notifications through `flutter_local_notifications` |
 | Trip Mode | `geolocator` for position, `flutter_tts` for the phone's own text-to-speech |
-| Sharing backend (planned) | Supabase: Postgres, anonymous sign-in, row-level security |
+| Sharing | Supabase (`supabase` package): Postgres functions, anonymous sign-in, row-level security |
 
 ## Architecture
 
@@ -127,7 +127,8 @@ Tasks in a trip form a **directed graph**: an edge from B to A means "B waits fo
 - **The rule is enforced where a task is completed**, not only in the screens. Completing a
   locked task is refused by the completion service, whether it comes from the trip screen, a
   notification, the arrival alert, Trip Mode or the Map tab. The planned sharing server
-  enforces the same rule in its own `complete_task` function.
+  enforces the same rule in its own `complete_task` function (used by shared trips from
+  v0.8).
 
 ## The suggested order
 
@@ -244,21 +245,30 @@ in a later version.
   repeated searches are answered from memory.
 - **Navigate** hands the place to the phone's maps app. GeoReminder does no routing itself.
 
-## Planned: sharing a trip
+## Sharing a trip
 
-Sharing is being built for v0.7 and v0.8 (see the [roadmap](roadmap.md)). The server side
-already exists, with automated SQL tests.
+Sharing arrived in v0.7.0. The server side is a Supabase project (Postgres, anonymous auth,
+row-level security), kept as SQL migrations with automated SQL tests in the backend
+repository.
 
-- **Identity:** anonymous sign-in plus a nickname. No email, phone or password. The
-  anonymous account is tied to the install.
-- **Joining:** the owner shares a trip and gets a **6-character code, valid 10 minutes**. At
-  most **10 people** can be in a trip.
-- **Server rules:** Postgres functions do the work (`share_trip`, `join_trip`,
-  `complete_task`, stop sharing). `complete_task` enforces the waiting rule on the server and
-  answers `BLOCKED` for a locked task; `share_trip` refuses a trip with a dependency cycle.
-  Row-level security means a user who is not in a trip can't read or change it.
-- **Offline:** completions made without a connection are queued on the phone and sent when
-  it is back.
+- **Identity:** anonymous sign-in plus a nickname. No email, phone or password. The session
+  is kept on the phone, so the same anonymous user comes back after a restart.
+- **Server functions:** the app does not write the tables directly; it calls Postgres
+  functions to share a trip, make a new code, join, read the participants and stop sharing.
+  Completing a shared task goes through `complete_task` from v0.8.
+- **Codes:** 6 characters, valid **10 minutes**, one active code per trip. At most **10
+  people** per trip.
+- **Checks on the server:** sharing refuses a trip with a dependency cycle or a task that
+  waits for a missing one, and limits the size of what one call can store. `complete_task`
+  enforces the waiting rule and answers `BLOCKED` for a locked task. Only the owner can make
+  a new code or stop sharing.
+- **Row-level security:** a user who is not on a trip can't read or change it.
+- **Errors:** each server error code maps to its own message in the app (wrong or expired
+  code, full trip, offline, server waking up, sharing stopped elsewhere).
+- **Editing:** a shared trip is read-only on every phone, so the copies can't drift apart.
+  Stopping sharing deletes the trip on the server; the owner's phone keeps it as a normal trip.
+- **v0.7.0 limit:** a joined trip is a snapshot. Live completions over Supabase Realtime, the
+  live participants list and an offline completion queue come in v0.8.
 - Positions are never uploaded, shared trips included.
 
 ## How releases are built
@@ -266,7 +276,7 @@ already exists, with automated SQL tests.
 Every release in this repository is built automatically:
 
 1. Each change to the app goes through automated checks: formatting, static analysis and
-   the full test suite (over 560 tests at v0.6.1).
+   the full test suite (806 tests at v0.7.0).
 2. When a version is merged, the pipeline builds the Android APK and publishes a release
    with its notes in the private source repository.
 3. A scheduled job in this repository copies each new release here, with the same notes,

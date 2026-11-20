@@ -12,6 +12,23 @@ numbered `v0.<sprint>.<fix>`. The full notes of every version, with its APK, are
 
 ## Released
 
+### v0.7.0: sharing a trip
+
+- **Nickname** instead of an account: the app signs in anonymously the first time you share
+  or join.
+- **Share a trip**: a 6-character code valid for 10 minutes, **Copy**, **New code**, and
+  the list of participants. At most 10 people per trip.
+- **Join a trip** from My trips by typing the code. The trip is saved as a read-only copy.
+- **Stop sharing**: everyone else loses access and the trip becomes a normal trip again.
+- A clear message for a wrong or expired code, a full trip, being offline and a sleeping
+  server.
+- Limit: a joined trip is a copy. Completions don't show on the other phones yet (v0.8).
+
+### v0.6.3: Trip Mode location fix
+
+- Trip Mode shows "Location unavailable" as soon as the phone's location is turned off, and
+  the distance comes back by itself when it is turned on again.
+
 ### v0.6.2: reminder fixes
 
 - Trips planned for a later day now remind on their day, even if the app is not opened.
@@ -69,8 +86,7 @@ Plans can change. Each item lists the version it is planned for.
 
 | Version | What |
 |---|---|
-| **v0.7** | **Sharing a trip.** Anonymous sign-in with a nickname (no email or password), share a trip with a 6-character code valid for 10 minutes, join by code, up to 10 people, stop sharing. |
-| **v0.8** | **Doing a shared trip together.** Everyone sees the same tasks, live. Completing respects what waits for what, checked on the server too. Completions made offline are sent when the connection is back. |
+| **v0.8** | **Doing a shared trip together.** Everyone sees the same tasks and completions, live, and the participants list updates by itself. Completing respects what waits for what, checked on the server too. Completions made offline are sent when the connection is back. |
 | **v0.9** | **Calendar and repeating trips.** Trips on a calendar, repeat daily, weekly or monthly, and a reminder on a trip's day. |
 | **v0.10** | **History and backups.** A fuller History with who completed what. Export trips to a file and import them again. |
 | **v0.11** | **Road distance.** The suggested order and Trip Mode use distance along roads, falling back to straight-line distance offline. Still distance only, never time. |

@@ -1,6 +1,6 @@
 # User guide
 
-[Back to the README](../README.md) · This guide describes version 0.6.2.
+[Back to the README](../README.md) · This guide describes version 0.7.0.
 
 1. [The idea in one minute](#the-idea-in-one-minute)
 2. [The main screens](#the-main-screens)
@@ -16,8 +16,9 @@
 12. [Pausing a trip](#pausing-a-trip)
 13. [Trip Mode](#trip-mode)
 14. [Connecting to your car](#connecting-to-your-car)
-15. [Finishing a trip and History](#finishing-a-trip-and-history)
-16. [What is not in the app yet](#what-is-not-in-the-app-yet)
+15. [Sharing a trip](#sharing-a-trip)
+16. [Finishing a trip and History](#finishing-a-trip-and-history)
+17. [What is not in the app yet](#what-is-not-in-the-app-yet)
 
 ---
 
@@ -50,7 +51,7 @@ The bar at the bottom has four tabs:
 
 | Tab | What it shows |
 |---|---|
-| **Trips** | Your trips, in three tabs: Active, Upcoming and History. |
+| **Trips** | Your trips, in three tabs: Active, Upcoming and History. The button at the top joins a shared trip. |
 | **Map** | The active trip's tasks as pins on a map. |
 | **Calendar** | Not used yet. The calendar comes in a later version. |
 | **Settings** | Reminders setup and Frequent places. |
@@ -304,6 +305,72 @@ The offer works while GeoReminder is running (in front or in the background). It
 start a closed app. See [Troubleshooting](troubleshooting.md#my-car-is-not-noticed) if your car
 isn't noticed.
 
+## Sharing a trip
+
+Sharing needs an internet connection. Everything else in the app keeps working without one.
+
+### Your nickname
+
+The first time you share or join a trip, the app asks you to **Choose a nickname** (up to 30
+characters). It is what the other people on the trip see. There is no account, email or
+password: behind the nickname the app signs in anonymously, and it remembers you after a
+restart.
+
+### Share one of your trips
+
+1. Open the trip and tap the **share** button at the top (a person with a plus).
+2. The screen explains what sharing does. Tap **Share**.
+3. You get a **Trip code** of six letters and digits, for example `6F4BFA`, with **Valid for**
+   counting down from 10 minutes.
+   - **Copy** copies it so you can send it in a message.
+   - **New code** makes a fresh one, for example when it has run out ("Expired. Make a new
+     code.").
+4. **Participants** lists everyone on the trip, owner first, and marks you and the owner.
+   Tap **Refresh participants** (top right) to see who has joined since.
+
+A trip can have up to **10 people**, you included.
+
+**A shared trip can't be edited.** After sharing, the trip has no **Add task** and its tasks
+have no **Edit**, because the copy the others got does not change. Stop sharing to edit it
+again. Tap the share button again at any time to see the code and the participants.
+
+### Join someone's trip
+
+1. Ask the person who shared it for the code.
+2. On **My trips**, tap the **Join a trip** button at the top.
+3. Type the code into the six boxes.
+4. The trip is saved on your phone, marked **Shared**.
+
+What can go wrong, and what the app says:
+
+| Message | What to do |
+|---|---|
+| "That code is wrong or has expired." | Check the code, or ask for a new one. Codes work for 10 minutes. |
+| "This trip is full. A shared trip has room for 10 people." | A shared trip holds at most 10 people. |
+| You're offline | Connect and try again. Nothing changed. |
+| "The server is waking up" | Try again in a minute (see [Troubleshooting](troubleshooting.md#sharing-says-the-server-is-waking-up)). |
+
+### Stop sharing
+
+On the code screen, **Stop sharing** at the bottom asks first and names who will lose access.
+
+- After it, the others lose access, the old code stops working, and the trip stays on your
+  phone as a normal trip you can edit again, with what is already done.
+- You can share it again later; it gets a new code.
+- If stopping fails (offline, server waking up), the trip stays shared and you can try again.
+- Only the person who shared the trip can stop sharing it.
+
+### What sharing does not do yet (v0.7.0)
+
+- **Completions are not shared yet.** A joined trip is a copy taken when you join. Completing
+  a task on one phone does not show on the others, and the participants list only changes
+  when you refresh it. Live completions and a live participants list come in v0.8.
+- A joined phone doesn't notice when the owner stops sharing.
+- Nobody can leave a trip or remove one person. Stop sharing removes everyone.
+
+Your position is never uploaded, shared trips included. What is uploaded is listed in
+[Permissions and privacy](privacy.md#sharing-a-trip).
+
 ## Finishing a trip and History
 
 When every task is done, **Finish trip** appears on the trip's screen. Tapping it shows "Trip
@@ -314,7 +381,8 @@ can't change, and its reminders stop.
 
 These are being built now; see the [roadmap](roadmap.md):
 
-- Sharing a trip with family or friends, with a join code, and seeing their completions live.
+- Seeing each other's completions on a shared trip live, completing a shared task offline,
+  and leaving a shared trip.
 - The calendar and repeating trips.
 - History details, and moving trips to another phone with a file.
 - Road distance in the suggested order.
