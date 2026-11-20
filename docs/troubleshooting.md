@@ -159,9 +159,21 @@ again. If it keeps failing for more than a few minutes, [open an issue](https://
 
 ## A task I completed doesn't show on the other phone
 
-In v0.7.0 a joined trip is a copy taken when you joined. Completions don't travel between
-phones yet, and the participants list changes only when you tap refresh. Both become live in
-v0.8. See the [roadmap](roadmap.md).
+A completion normally shows on the other phones within a few seconds.
+
+- **The other phone must have the app open** to see it live. A phone where the app was
+  closed catches up when the app opens, or when you open the trip.
+- **Both phones need internet.** A task completed offline shows as done on that phone at
+  once and is sent when the connection is back (or when the app is opened again). There is
+  no "waiting to send" sign yet.
+- On the code screen, a new participant appears by themselves. If one is missing after a
+  connection drop, tap **Refresh participants**.
+- Still missing after opening the trip on both phones with internet? [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose).
+
+## A shared trip says "Sharing has stopped"
+
+The owner stopped sharing it. The trip stays on your phone as a normal trip of your own, with
+what was done, and you can edit it. Ask the owner for a new code to share again.
 
 ## I can't edit a shared trip
 
@@ -182,7 +194,7 @@ sharing** on the code screen to edit it again.
 [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose) and include:
 
 - phone model and Android version
-- app version (the release you downloaded, for example v0.7.0)
+- app version (the release you downloaded, for example v0.8.0)
 - what you did, what you expected and what happened
 - for reminders: the task's radius, **Arrive/Leave/Both**, and whether battery was set to
   Unrestricted

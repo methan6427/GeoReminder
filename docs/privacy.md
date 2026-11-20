@@ -99,14 +99,18 @@ The anonymous account belongs to this install of the app.
   task waits for which, and what is done
 - the nickname of everyone on the trip, and who shared it
 
+**What is uploaded when you complete a task on a shared trip:** that the task is done, which
+participant completed it, and when. A completion made offline is kept on the phone and
+uploaded when the connection is back.
+
 **What is never uploaded:** your position, your other trips, your frequent places.
 
 **Who can see it.** Only the people who joined with the code. The server's rules refuse
-anyone who is not on the trip. A code works for 10 minutes, and a trip holds at most 10
+anyone who is not on the trip, and live updates are sent only to people on the trip. A code works for 10 minutes, and a trip holds at most 10
 people.
 
 **Stopping.** **Stop sharing** deletes the trip from the server and removes everyone from it.
-The trip stays on your phone.
+The trip stays on your phone, and on the others' phones as their own normal trip.
 
 **Where.** The sharing server runs on [Supabase](https://supabase.com) (a hosted Postgres
 database). Its privacy policy: <https://supabase.com/privacy>.

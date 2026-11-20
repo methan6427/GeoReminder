@@ -12,6 +12,20 @@ numbered `v0.<sprint>.<fix>`. The full notes of every version, with its APK, are
 
 ## Released
 
+### v0.8.0: doing a shared trip together
+
+- **Completions everyone sees.** Completing a task on a shared trip shows it as done on every
+  phone within a few seconds while the app is open there, with no refresh.
+- **Catching up.** A phone that was closed or offline gets what it missed when the app opens,
+  comes back to the front, reconnects, or when the trip is opened.
+- **Completing offline.** A task completed with no connection is done on your phone at once
+  and sent later. Tasks that others wait for are sent first.
+- **Same rules for everyone.** A locked task stays locked on every phone, checked on the
+  server too. If two people complete the same task, the first completion is kept.
+- **Live participants.** Someone who joins appears on the code screen by themselves.
+- A phone on a trip whose sharing was stopped turns it into a normal trip at its next sync,
+  keeping its completions.
+
 ### v0.7.0: sharing a trip
 
 - **Nickname** instead of an account: the app signs in anonymously the first time you share
@@ -86,7 +100,6 @@ Plans can change. Each item lists the version it is planned for.
 
 | Version | What |
 |---|---|
-| **v0.8** | **Doing a shared trip together.** Everyone sees the same tasks and completions, live, and the participants list updates by itself. Completing respects what waits for what, checked on the server too. Completions made offline are sent when the connection is back. |
 | **v0.9** | **Calendar and repeating trips.** Trips on a calendar, repeat daily, weekly or monthly, and a reminder on a trip's day. |
 | **v0.10** | **History and backups.** A fuller History with who completed what. Export trips to a file and import them again. |
 | **v0.11** | **Road distance.** The suggested order and Trip Mode use distance along roads, falling back to straight-line distance offline. Still distance only, never time. |

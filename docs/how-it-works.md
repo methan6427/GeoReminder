@@ -3,7 +3,7 @@
 [Back to the README](../README.md)
 
 A technical overview for readers who want to know what is inside the app. The source code
-is in a private repository; this page describes it as of **v0.7.0**.
+is in a private repository; this page describes it as of **v0.8.0**.
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -29,7 +29,7 @@ is in a private repository; this page describes it as of **v0.7.0**.
 | Map | OpenStreetMap through `flutter_map` |
 | Reminders | the operating system's geofencing through `native_geofence`, notifications through `flutter_local_notifications` |
 | Trip Mode | `geolocator` for position, `flutter_tts` for the phone's own text-to-speech |
-| Sharing | Supabase (`supabase` package): Postgres functions, anonymous sign-in, row-level security |
+| Sharing | Supabase (`supabase` package): Postgres functions, anonymous sign-in, row-level security, Realtime |
 
 ## Architecture
 
@@ -126,9 +126,8 @@ Tasks in a trip form a **directed graph**: an edge from B to A means "B waits fo
   choices and says how many were left out.
 - **The rule is enforced where a task is completed**, not only in the screens. Completing a
   locked task is refused by the completion service, whether it comes from the trip screen, a
-  notification, the arrival alert, Trip Mode or the Map tab. The planned sharing server
-  enforces the same rule in its own `complete_task` function (used by shared trips from
-  v0.8).
+  notification, the arrival alert, Trip Mode or the Map tab. For shared trips the sharing
+  server enforces the same rule again in its own `complete_task` function.
 
 ## The suggested order
 
@@ -247,15 +246,15 @@ in a later version.
 
 ## Sharing a trip
 
-Sharing arrived in v0.7.0. The server side is a Supabase project (Postgres, anonymous auth,
-row-level security), kept as SQL migrations with automated SQL tests in the backend
-repository.
+Sharing arrived in v0.7.0, and doing a shared trip together in v0.8.0. The server side is a
+Supabase project (Postgres, anonymous auth, row-level security, Realtime), kept as SQL
+migrations with automated SQL tests in the backend repository.
 
 - **Identity:** anonymous sign-in plus a nickname. No email, phone or password. The session
   is kept on the phone, so the same anonymous user comes back after a restart.
 - **Server functions:** the app does not write the tables directly; it calls Postgres
-  functions to share a trip, make a new code, join, read the participants and stop sharing.
-  Completing a shared task goes through `complete_task` from v0.8.
+  functions to share a trip, make a new code, join, read the trip and its participants,
+  complete a task (`complete_task`) and stop sharing.
 - **Codes:** 6 characters, valid **10 minutes**, one active code per trip. At most **10
   people** per trip.
 - **Checks on the server:** sharing refuses a trip with a dependency cycle or a task that
@@ -267,8 +266,21 @@ repository.
   code, full trip, offline, server waking up, sharing stopped elsewhere).
 - **Editing:** a shared trip is read-only on every phone, so the copies can't drift apart.
   Stopping sharing deletes the trip on the server; the owner's phone keeps it as a normal trip.
-- **v0.7.0 limit:** a joined trip is a snapshot. Live completions over Supabase Realtime, the
-  live participants list and an offline completion queue come in v0.8.
+- **Completing:** a completion on a shared trip is saved on the phone first, then sent with
+  `complete_task`. If two people complete the same task, the server keeps the first
+  completion and every phone shows that one.
+- **Live updates:** while the app runs, each shared trip that isn't finished listens on
+  Supabase Realtime: one channel for task changes and a separate one for new participants,
+  both filtered to that trip. Row-level security applies to Realtime too, so only people on
+  the trip receive its changes. The channels connect only after the signed-in session is
+  restored, and a problem on the participants channel never stops task updates.
+- **Catching up:** when the app starts, comes back to the front, reconnects, or a trip is
+  opened, it reads the whole trip from the server and applies what it missed.
+- **Offline queue:** a completion that can't be sent stays queued in the phone's storage and
+  is sent at the next sync, including after a restart. Prerequisites are sent before the
+  tasks that wait for them.
+- **Sharing stopped:** when the server answers that the trip no longer exists, a member's
+  phone turns it into a normal local trip and keeps its completions.
 - Positions are never uploaded, shared trips included.
 
 ## How releases are built
@@ -276,7 +288,7 @@ repository.
 Every release in this repository is built automatically:
 
 1. Each change to the app goes through automated checks: formatting, static analysis and
-   the full test suite (806 tests at v0.7.0).
+   the full test suite (863 tests at v0.8.0).
 2. When a version is merged, the pipeline builds the Android APK and publishes a release
    with its notes in the private source repository.
 3. A scheduled job in this repository copies each new release here, with the same notes,

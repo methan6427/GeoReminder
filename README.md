@@ -32,8 +32,9 @@
   distance, and always keeps every task after the tasks it waits for.
 - **Trip Mode for driving.** One large screen with the next stop and how far away it is, with
   spoken prompts. It can offer itself when your phone connects to the car by Bluetooth.
-- **Share a trip.** Give family or friends a 6-character code and they get the trip on their
-  phone. No account, email or password: you only pick a nickname.
+- **Share a trip and do it together.** Give family or friends a 6-character code and they get
+  the trip on their phone. When anyone completes a task, it shows as done on every phone
+  within a few seconds. No account, email or password: you only pick a nickname.
 - **Private by design.** Trips, tasks and places are stored on your phone. Only a trip you
   choose to share is uploaded, and your location is never uploaded.
 
@@ -63,11 +64,11 @@ Full steps, including how to allow the install and how to update: **[docs/instal
 
 ## Status
 
-GeoReminder is under active development. The current version (**v0.7.0**) works fully on one
-phone (trips, tasks, map, reminders, Trip Mode) and can share a trip with other phones by a
-join code. In v0.7.0 a joined trip is a copy: completions don't show on the other phones yet.
-That comes in v0.8, followed by a calendar, repeating trips and road distance. See the
-[roadmap](docs/roadmap.md).
+GeoReminder is under active development. The current version (**v0.8.0**) works fully on one
+phone (trips, tasks, map, reminders, Trip Mode) and shares a trip with other phones by a join
+code. On a shared trip, completions show on every phone live, and a task completed with no
+connection is sent when the phone is back online. Next come a calendar, repeating trips and
+road distance. See the [roadmap](docs/roadmap.md).
 
 Found a problem? [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose)
 with your phone model, Android version and app version (shown on the Releases page you

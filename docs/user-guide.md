@@ -1,6 +1,6 @@
 # User guide
 
-[Back to the README](../README.md) · This guide describes version 0.7.0.
+[Back to the README](../README.md) · This guide describes version 0.8.0.
 
 1. [The idea in one minute](#the-idea-in-one-minute)
 2. [The main screens](#the-main-screens)
@@ -326,12 +326,14 @@ restart.
    - **New code** makes a fresh one, for example when it has run out ("Expired. Make a new
      code.").
 4. **Participants** lists everyone on the trip, owner first, and marks you and the owner.
-   Tap **Refresh participants** (top right) to see who has joined since.
+   Someone who joins appears here by themselves within a few seconds while the screen is
+   open. If the connection dropped, tap **Refresh participants** (top right).
 
 A trip can have up to **10 people**, you included.
 
 **A shared trip can't be edited.** After sharing, the trip has no **Add task** and its tasks
-have no **Edit**, because the copy the others got does not change. Stop sharing to edit it
+have no **Edit**, so everyone keeps the same tasks. Completing tasks still works for everyone
+(see [Doing a shared trip together](#doing-a-shared-trip-together)). Stop sharing to edit it
 again. Tap the share button again at any time to see the code and the participants.
 
 ### Join someone's trip
@@ -350,22 +352,41 @@ What can go wrong, and what the app says:
 | You're offline | Connect and try again. Nothing changed. |
 | "The server is waking up" | Try again in a minute (see [Troubleshooting](troubleshooting.md#sharing-says-the-server-is-waking-up)). |
 
+### Doing a shared trip together
+
+Everyone on the trip can complete its tasks, in all the usual ways (the trip screen, a
+reminder, Trip Mode, the Map tab).
+
+- **Live.** When someone completes a task, it turns done on every other phone within a few
+  seconds while the app is open there, with no refresh. Tasks that were waiting for it unlock
+  for everyone.
+- **Catching up.** A phone that was closed or offline gets what it missed when the app
+  opens, comes back to the front, reconnects, or when you open the trip.
+- **Locked for everyone.** A task that waits for others can't be completed until they are
+  done, on any phone. The sharing server checks this too.
+- **Same task, same time.** If two people complete the same task at about the same moment,
+  the first completion is the one every phone keeps.
+- **No connection?** Complete the task anyway. It shows as done on your phone straight
+  away, and the app sends it when the connection is back, when the app comes back to the
+  front, or after a restart. Tasks that others wait for are sent first.
+
 ### Stop sharing
 
 On the code screen, **Stop sharing** at the bottom asks first and names who will lose access.
 
 - After it, the others lose access, the old code stops working, and the trip stays on your
   phone as a normal trip you can edit again, with what is already done.
+- The others' phones notice the next time they sync (opening the app or the trip). There,
+  the trip also becomes a normal trip of their own, with their completions kept.
 - You can share it again later; it gets a new code.
 - If stopping fails (offline, server waking up), the trip stays shared and you can try again.
 - Only the person who shared the trip can stop sharing it.
 
-### What sharing does not do yet (v0.7.0)
+### What sharing does not do yet (v0.8.0)
 
-- **Completions are not shared yet.** A joined trip is a copy taken when you join. Completing
-  a task on one phone does not show on the others, and the participants list only changes
-  when you refresh it. Live completions and a live participants list come in v0.8.
-- A joined phone doesn't notice when the owner stops sharing.
+- Changes arrive live only while the app is open. A closed phone catches up when it opens.
+- A task completed offline doesn't say it is still waiting to be sent; it just shows as done.
+- The app doesn't show who completed a task yet (planned with the fuller History).
 - Nobody can leave a trip or remove one person. Stop sharing removes everyone.
 
 Your position is never uploaded, shared trips included. What is uploaded is listed in
@@ -381,8 +402,7 @@ can't change, and its reminders stop.
 
 These are being built now; see the [roadmap](roadmap.md):
 
-- Seeing each other's completions on a shared trip live, completing a shared task offline,
-  and leaving a shared trip.
+- Leaving a shared trip, and seeing who completed each task.
 - The calendar and repeating trips.
 - History details, and moving trips to another phone with a file.
 - Road distance in the suggested order.
