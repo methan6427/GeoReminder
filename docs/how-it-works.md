@@ -3,7 +3,7 @@
 [Back to the README](../README.md)
 
 A technical overview for readers who want to know what is inside the app. The source code
-is in a private repository; this page describes it as of **v0.8.1**.
+is in a private repository; this page describes it as of **v0.8.2**.
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -221,6 +221,7 @@ Everything is stored as JSON in the app's private documents folder.
 | `places.json` | frequent places | `georeminder.places`, version 1 |
 | `regions.json` | regions registered with the system, last reported position | |
 | `reminder_log.json` | reminders already shown for the current visit | |
+| `settings.json` | light/dark choice, first-launch setup offered | `georeminder-settings`, version 1 |
 
 **Safe saves.** A save writes `trips.json.tmp`, moves the current file to `trips.json.bak`,
 then moves the new file into place. A crash at any step leaves either the old or the new
@@ -292,7 +293,7 @@ migrations with automated SQL tests in the backend repository.
 Every release in this repository is built automatically:
 
 1. Each change to the app goes through automated checks: formatting, static analysis and
-   the full test suite (889 tests at v0.8.1).
+   the full test suite (917 tests at v0.8.2).
 2. When a version is merged, the pipeline builds the Android APK and publishes a release
    with its notes in the private source repository.
 3. A scheduled job in this repository copies each new release here, with the same notes,

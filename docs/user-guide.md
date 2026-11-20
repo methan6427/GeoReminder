@@ -1,6 +1,6 @@
 # User guide
 
-[Back to the README](../README.md) · This guide describes version 0.8.1.
+[Back to the README](../README.md) · This guide describes version 0.8.2.
 
 1. [The idea in one minute](#the-idea-in-one-minute)
 2. [The main screens](#the-main-screens)
@@ -54,9 +54,11 @@ The bar at the bottom has four tabs:
 | **Trips** | Your trips, in three tabs: Active, Upcoming and History. The button at the top joins a shared trip. |
 | **Map** | The active trip's tasks as pins on a map. |
 | **Calendar** | Not used yet. The calendar comes in a later version. |
-| **Settings** | Reminders setup and Frequent places. |
+| **Settings** | Frequent places, Reminders setup and Appearance. |
 
-The app follows your phone's light or dark theme.
+**Light or dark.** The app follows your phone's light or dark theme. To keep it in one look,
+open **Settings > Appearance** and pick **Light** or **Dark**; **System** goes back to the
+phone's setting. The choice is kept after closing the app.
 
 ## Trips
 
@@ -114,7 +116,9 @@ undone.
 6. Optional: choose what it **Depends on** (see the next section), and add **Notes**.
 7. Tap **Save task**.
 
-Tap a task in the trip to open its sheet: **Complete**, **Edit task** and **Delete task**.
+Tap a task in the trip to open its sheet. **Complete** is the large button at the top;
+**Edit task** and **Delete task** are under it. A task that waits for another shows a grey
+**Complete (locked)** button with a lock instead.
 
 ### Completing a task
 
@@ -197,8 +201,9 @@ page.
 
 ## Setting up reminders
 
-Reminders need a few permissions. **Settings > Reminders** walks you through them, one step
-at a time:
+Reminders need a few permissions. The first time you open the app, it walks you through them
+straight away, one step at a time. Every step can be skipped, and the app works either way.
+This happens once; later, **Settings > Reminders** has the same steps:
 
 1. **Location, all the time.** The phone first asks for "While using the app", then for "Allow
    all the time". Android and iOS only allow that order. "All the time" is what lets reminders
@@ -390,7 +395,7 @@ On the code screen, **Stop sharing** at the bottom asks first and names who will
 - If stopping fails (offline, server waking up), the trip stays shared and you can try again.
 - Only the person who shared the trip can stop sharing it.
 
-### What sharing does not do yet (v0.8.1)
+### What sharing does not do yet (v0.8.2)
 
 - Changes arrive live only while the app is open. A closed phone catches up when it opens.
 - A task completed offline doesn't say it is still waiting to be sent; it just shows as done.

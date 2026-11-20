@@ -12,6 +12,15 @@ numbered `v0.<sprint>.<fix>`. The full notes of every version, with its APK, are
 
 ## Released
 
+### v0.8.2: first-launch setup, light and dark
+
+- **Permissions on the first launch.** The first time the app opens, it walks through the
+  reminder setup: location all the time, notifications, the car connection (Android) and the
+  battery setting. Every step can be skipped, and it is offered once.
+- **Light and dark mode.** Settings > Appearance picks System (the default), Light or Dark.
+- **Complete is a button.** In a task's sheet, Complete is now a full-width button; a locked
+  task shows a grey "Complete (locked)" button.
+
 ### v0.8.1: who completed what
 
 - **Done by.** On a shared trip, each done task shows who completed it ("Done by Lina", or
@@ -114,7 +123,12 @@ Plans can change. Each item lists the version it is planned for.
 | **v1.0** | **First full release.** Welcome screens on first run, an accessibility pass, a release signing key. |
 | **v1.1** | **iPhone.** The iPhone version already builds and is being tested on a real iPhone. |
 
-Also planned: showing your own position on the map.
+Also planned, as small updates before v0.9:
+
+- **v0.8.3**: your own position on the map, with the direction you are facing.
+- **v0.8.4**: every active trip on the map at once, each in its own colour, with a filter.
+- **v0.8.5**: the app in Arabic.
+- **v0.8.6**: an Arabic voice for Trip Mode, and a choice of voices with samples.
 
 When the app moves to a release signing key (v1.0), Android will need the old version removed
 once before the new one installs. See [Install](install.md#why-the-apk-is-signed-with-a-debug-key).
