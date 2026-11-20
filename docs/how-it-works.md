@@ -3,7 +3,7 @@
 [Back to the README](../README.md)
 
 A technical overview for readers who want to know what is inside the app. The source code
-is in a private repository; this page describes it as of **v0.8.4**.
+is in a private repository; this page describes it as of **v0.8.5**.
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -26,6 +26,7 @@ is in a private repository; this page describes it as of **v0.8.4**.
 | iOS | 14.0 or newer (builds; not released yet) |
 | State | Flutter's own `ChangeNotifier`, no state-management package |
 | Storage | JSON files in the app's private folder |
+| Languages | English and Arabic, with `flutter_localizations` from the Flutter SDK for the right-to-left layout and Material's own texts |
 | Map | OpenStreetMap through `flutter_map` |
 | Reminders | the operating system's geofencing through `native_geofence`, notifications through `flutter_local_notifications` |
 | Trip Mode | `geolocator` for position, `flutter_tts` for the phone's own text-to-speech |
@@ -222,7 +223,7 @@ Everything is stored as JSON in the app's private documents folder.
 | `places.json` | frequent places | `georeminder.places`, version 1 |
 | `regions.json` | regions registered with the system, last reported position | |
 | `reminder_log.json` | reminders already shown for the current visit | |
-| `settings.json` | light/dark choice, first-launch setup offered | `georeminder-settings`, version 1 |
+| `settings.json` | light/dark choice, language, first-launch setup offered | `georeminder-settings`, version 1 |
 
 **Safe saves.** A save writes `trips.json.tmp`, moves the current file to `trips.json.bak`,
 then moves the new file into place. A crash at any step leaves either the old or the new
@@ -294,7 +295,7 @@ migrations with automated SQL tests in the backend repository.
 Every release in this repository is built automatically:
 
 1. Each change to the app goes through automated checks: formatting, static analysis and
-   the full test suite (961 tests at v0.8.4).
+   the full test suite (981 tests at v0.8.5).
 2. When a version is merged, the pipeline builds the Android APK and publishes a release
    with its notes in the private source repository.
 3. A scheduled job in this repository copies each new release here, with the same notes,

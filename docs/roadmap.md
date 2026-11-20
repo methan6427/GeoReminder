@@ -12,6 +12,13 @@ numbered `v0.<sprint>.<fix>`. The full notes of every version, with its APK, are
 
 ## Released
 
+### v0.8.5: Arabic
+
+- **Settings > Language.** System (the default, follows the phone), English or العربية;
+  the app switches at once.
+- **Every screen in Arabic,** laid out right to left, with Western digits and Arabic counts.
+- **Reminders and messages** in the chosen language, also when the app is closed.
+
 ### v0.8.4: every trip on one map
 
 - **All active trips at once.** The Map tab shows every active trip's tasks, each trip in
@@ -140,7 +147,6 @@ Plans can change. Each item lists the version it is planned for.
 
 Also planned, as small updates before v0.9:
 
-- **v0.8.5**: the app in Arabic.
 - **v0.8.6**: an Arabic voice for Trip Mode, and a choice of voices with samples.
 
 When the app moves to a release signing key (v1.0), Android will need the old version removed

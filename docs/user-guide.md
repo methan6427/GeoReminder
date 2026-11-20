@@ -1,6 +1,6 @@
 # User guide
 
-[Back to the README](../README.md) · This guide describes version 0.8.4.
+[Back to the README](../README.md) · This guide describes version 0.8.5.
 
 1. [The idea in one minute](#the-idea-in-one-minute)
 2. [The main screens](#the-main-screens)
@@ -54,11 +54,18 @@ The bar at the bottom has four tabs:
 | **Trips** | Your trips, in three tabs: Active, Upcoming and History. The button at the top joins a shared trip. |
 | **Map** | Every active trip's tasks as pins on a map, each trip in its own colour. |
 | **Calendar** | Not used yet. The calendar comes in a later version. |
-| **Settings** | Frequent places, Reminders setup and Appearance. |
+| **Settings** | Frequent places, Reminders setup, Appearance and Language. |
 
 **Light or dark.** The app follows your phone's light or dark theme. To keep it in one look,
 open **Settings > Appearance** and pick **Light** or **Dark**; **System** goes back to the
 phone's setting. The choice is kept after closing the app.
+
+**Arabic or English.** The app follows your phone's language: Arabic on an Arabic phone,
+otherwise English. To choose yourself, open **Settings > Language** and pick **English** or
+**العربية**; **System** goes back to the phone's language. The app switches at once and keeps
+the choice. In Arabic every screen, reminder and message is in Arabic and the app is laid
+out right to left. Numbers, distances and dates keep Western digits ("150 م", "1.2 كم").
+Names you type (trips, tasks, places) are shown as you typed them.
 
 ## Trips
 
@@ -413,7 +420,7 @@ On the code screen, **Stop sharing** at the bottom asks first and names who will
 - If stopping fails (offline, server waking up), the trip stays shared and you can try again.
 - Only the person who shared the trip can stop sharing it.
 
-### What sharing does not do yet (v0.8.4)
+### What sharing does not do yet (v0.8.5)
 
 - Changes arrive live only while the app is open. A closed phone catches up when it opens.
 - A task completed offline doesn't say it is still waiting to be sent; it just shows as done.
