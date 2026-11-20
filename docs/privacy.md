@@ -32,7 +32,7 @@ Everything is kept in the app's private storage on the phone. Other apps can't r
 | The places the phone is currently watching, and the one position where the phone last reported arriving or leaving | `regions.json`, so the places can be watched again after a restart and the nearest tasks are picked first |
 | Which reminders were already shown for the current visit, so a stay does not repeat them | `reminder_log.json` |
 | Your nickname and the anonymous sign-in, once you share or join a trip | the app's private settings |
-| Your light/dark choice, your language choice, and whether the first-launch setup was already offered | `settings.json` |
+| Your light/dark choice, your language choice, the Trip Mode voices you picked, and whether the first-launch setup was already offered | `settings.json` |
 
 Only that one last position is kept, and it is replaced each time. There is no history of
 where you have been. Trip Mode reads your position while it is open to show the distance to

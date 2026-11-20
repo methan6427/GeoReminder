@@ -1,6 +1,6 @@
 # User guide
 
-[Back to the README](../README.md) · This guide describes version 0.8.5.
+[Back to the README](../README.md) · This guide describes version 0.8.6.
 
 1. [The idea in one minute](#the-idea-in-one-minute)
 2. [The main screens](#the-main-screens)
@@ -54,7 +54,7 @@ The bar at the bottom has four tabs:
 | **Trips** | Your trips, in three tabs: Active, Upcoming and History. The button at the top joins a shared trip. |
 | **Map** | Every active trip's tasks as pins on a map, each trip in its own colour. |
 | **Calendar** | Not used yet. The calendar comes in a later version. |
-| **Settings** | Frequent places, Reminders setup, Appearance and Language. |
+| **Settings** | Frequent places, Reminders setup, Trip Mode voice, Appearance and Language. |
 
 **Light or dark.** The app follows your phone's light or dark theme. To keep it in one look,
 open **Settings > Appearance** and pick **Light** or **Dark**; **System** goes back to the
@@ -311,6 +311,15 @@ planned trip, or resumes a paused one.
 - on a shared trip, a task someone else completed: "Lina completed Bank." This also shows in
   writing at the bottom of the screen, so it works with the voice off.
 
+With the app in Arabic, Trip Mode says all of these in Arabic ("المحطة التالية: البنك، 400
+متر."), with Western digits. Names you type are read as typed.
+
+**Choosing the voice.** **Settings > Trip Mode voice** lists the phone's voices for English
+and for Arabic, numbered ("English 1", "English 2", "Arabic 1" ...). The phone's default
+comes first and is used until you pick one. **▶** plays a sample without picking; tap the
+row to pick. Only voices installed on the phone that work offline are listed. If there is
+no Arabic voice, the screen says to add one in the phone's text-to-speech settings.
+
 The switch at the top turns the voice off until you leave Trip Mode. When the phone is
 connected to the car, the voice plays through the car's speakers like any phone audio.
 
@@ -420,7 +429,7 @@ On the code screen, **Stop sharing** at the bottom asks first and names who will
 - If stopping fails (offline, server waking up), the trip stays shared and you can try again.
 - Only the person who shared the trip can stop sharing it.
 
-### What sharing does not do yet (v0.8.5)
+### What sharing does not do yet (v0.8.6)
 
 - Changes arrive live only while the app is open. A closed phone catches up when it opens.
 - A task completed offline doesn't say it is still waiting to be sent; it just shows as done.

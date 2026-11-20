@@ -12,6 +12,13 @@ numbered `v0.<sprint>.<fix>`. The full notes of every version, with its APK, are
 
 ## Released
 
+### v0.8.6: an Arabic voice for Trip Mode
+
+- **Arabic speech.** With the app in Arabic, Trip Mode says every prompt in Arabic, with
+  Arabic count forms for distances and Western digits.
+- **Settings > Trip Mode voice.** Numbered English and Arabic voices, each with a ▶
+  sample; the picks are kept.
+
 ### v0.8.5: Arabic
 
 - **Settings > Language.** System (the default, follows the phone), English or العربية;
@@ -147,7 +154,6 @@ Plans can change. Each item lists the version it is planned for.
 
 Also planned, as small updates before v0.9:
 
-- **v0.8.6**: an Arabic voice for Trip Mode, and a choice of voices with samples.
 
 When the app moves to a release signing key (v1.0), Android will need the old version removed
 once before the new one installs. See [Install](install.md#why-the-apk-is-signed-with-a-debug-key).

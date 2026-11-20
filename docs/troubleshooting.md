@@ -11,6 +11,7 @@
 - [I can't complete a task](#i-cant-complete-a-task)
 - [My car is not noticed](#my-car-is-not-noticed)
 - [No blue dot on the map](#no-blue-dot-on-the-map)
+- [Trip Mode doesn't speak Arabic](#trip-mode-doesnt-speak-arabic)
 - [Trip Mode says "Location unavailable"](#trip-mode-says-location-unavailable)
 - [The map is blank or grey](#the-map-is-blank-or-grey)
 - [Address search finds nothing](#address-search-finds-nothing)
@@ -126,6 +127,14 @@ Trip Mode offers itself when the phone connects to the car by Bluetooth. If it d
 - If the cone points the wrong way, move the phone in a figure eight away from metal and
   magnets to calibrate the compass.
 
+## Trip Mode doesn't speak Arabic
+
+- Trip Mode speaks the app's language. Check **Settings > Language**.
+- The phone needs an Arabic voice. Google's engine may need it downloaded first: phone
+  **Settings > Text-to-speech** (the place differs by phone), then Google's settings >
+  Install voice data > Arabic. **Settings > Trip Mode voice** says when none is installed.
+- A picked voice that was removed from the phone falls back to the default.
+
 ## Trip Mode says "Location unavailable"
 
 Trip Mode still works without your position; it just can't show the distance.
@@ -208,7 +217,7 @@ sharing** on the code screen to edit it again.
 [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose) and include:
 
 - phone model and Android version
-- app version (the release you downloaded, for example v0.8.5)
+- app version (the release you downloaded, for example v0.8.6)
 - what you did, what you expected and what happened
 - for reminders: the task's radius, **Arrive/Leave/Both**, and whether battery was set to
   Unrestricted

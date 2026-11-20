@@ -15,7 +15,7 @@ with the Play Store has it). The phone's geofencing, which the reminders rely on
 Google Play services.
 
 1. On your phone, open the [latest release](https://github.com/methan6427/GeoReminder/releases/latest).
-2. Under **Assets**, tap `georeminder-v<version>.apk` (for example `georeminder-v0.8.5.apk`).
+2. Under **Assets**, tap `georeminder-v<version>.apk` (for example `georeminder-v0.8.6.apk`).
 3. Open the downloaded file, from the browser's download message or from the **Files** app.
 4. Android asks whether to allow installs from this source the first time. Tap **Settings**,
    turn on **Allow from this source** for your browser or file manager, then go back.
@@ -62,7 +62,7 @@ An iPhone download will be added here when it is ready. See the [roadmap](roadma
 Each release lists the file's SHA-256 checksum at the bottom of its notes. To check it on a
 computer:
 
-- Windows (PowerShell): `Get-FileHash georeminder-v0.8.5.apk -Algorithm SHA256`
-- macOS or Linux: `shasum -a 256 georeminder-v0.8.5.apk`
+- Windows (PowerShell): `Get-FileHash georeminder-v0.8.6.apk -Algorithm SHA256`
+- macOS or Linux: `shasum -a 256 georeminder-v0.8.6.apk`
 
 The result must match the checksum in the release notes.

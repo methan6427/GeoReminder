@@ -3,7 +3,7 @@
 [Back to the README](../README.md)
 
 A technical overview for readers who want to know what is inside the app. The source code
-is in a private repository; this page describes it as of **v0.8.5**.
+is in a private repository; this page describes it as of **v0.8.6**.
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -206,7 +206,9 @@ sequenceDiagram
 Trip Mode reads the phone's position with `geolocator` while it is open and shows the
 **next stop**: the first task that can be done now in the suggested order, with its
 straight-line distance. Spoken prompts use the phone's own text-to-speech engine; no voice
-data is bundled or sent anywhere.
+data is bundled or sent anywhere. Prompts are spoken in the app's language with the voice
+picked for it in Settings, or the engine's default for that language. Only installed
+voices that need no network are offered.
 
 The car is noticed through Bluetooth connection events: a connected device whose class is
 car audio or hands-free counts as the car. The app never scans for devices. When the car
@@ -223,7 +225,7 @@ Everything is stored as JSON in the app's private documents folder.
 | `places.json` | frequent places | `georeminder.places`, version 1 |
 | `regions.json` | regions registered with the system, last reported position | |
 | `reminder_log.json` | reminders already shown for the current visit | |
-| `settings.json` | light/dark choice, language, first-launch setup offered | `georeminder-settings`, version 1 |
+| `settings.json` | light/dark choice, language, Trip Mode voices, first-launch setup offered | `georeminder-settings`, version 1 |
 
 **Safe saves.** A save writes `trips.json.tmp`, moves the current file to `trips.json.bak`,
 then moves the new file into place. A crash at any step leaves either the old or the new
@@ -295,7 +297,7 @@ migrations with automated SQL tests in the backend repository.
 Every release in this repository is built automatically:
 
 1. Each change to the app goes through automated checks: formatting, static analysis and
-   the full test suite (981 tests at v0.8.5).
+   the full test suite (1006 tests at v0.8.6).
 2. When a version is merged, the pipeline builds the Android APK and publishes a release
    with its notes in the private source repository.
 3. A scheduled job in this repository copies each new release here, with the same notes,
