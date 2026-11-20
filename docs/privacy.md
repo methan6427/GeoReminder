@@ -27,7 +27,7 @@ Everything is kept in the app's private storage on the phone. Other apps can't r
 
 | What | Where |
 |---|---|
-| Trips and their tasks (title, date, status, places, radius, notes, which task waits for which, what is done) | `trips.json`, with a backup copy `trips.json.bak` |
+| Trips and their tasks (title, date, status, places, radius, notes, which task waits for which, what is done; on a shared trip also who completed each task and the nicknames of the people on it) | `trips.json`, with a backup copy `trips.json.bak` |
 | Frequent places (name and position) | `places.json`, with a backup copy |
 | The places the phone is currently watching, and the one position where the phone last reported arriving or leaving | `regions.json`, so the places can be watched again after a restart and the nearest tasks are picked first |
 | Which reminders were already shown for the current visit, so a stay does not repeat them | `reminder_log.json` |

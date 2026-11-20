@@ -34,7 +34,8 @@
   spoken prompts. It can offer itself when your phone connects to the car by Bluetooth.
 - **Share a trip and do it together.** Give family or friends a 6-character code and they get
   the trip on their phone. When anyone completes a task, it shows as done on every phone
-  within a few seconds. No account, email or password: you only pick a nickname.
+  within a few seconds, with who completed it. No account, email or password: you only pick a
+  nickname.
 - **Private by design.** Trips, tasks and places are stored on your phone. Only a trip you
   choose to share is uploaded, and your location is never uploaded.
 
@@ -64,11 +65,11 @@ Full steps, including how to allow the install and how to update: **[docs/instal
 
 ## Status
 
-GeoReminder is under active development. The current version (**v0.8.0**) works fully on one
+GeoReminder is under active development. The current version (**v0.8.1**) works fully on one
 phone (trips, tasks, map, reminders, Trip Mode) and shares a trip with other phones by a join
 code. On a shared trip, completions show on every phone live, and a task completed with no
-connection is sent when the phone is back online. Next come a calendar, repeating trips and
-road distance. See the [roadmap](docs/roadmap.md).
+connection is sent when the phone is back online. Each done task shows who completed it.
+Next come a calendar, repeating trips and road distance. See the [roadmap](docs/roadmap.md).
 
 Found a problem? [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose)
 with your phone model, Android version and app version (shown on the Releases page you

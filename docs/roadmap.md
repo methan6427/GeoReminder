@@ -12,6 +12,13 @@ numbered `v0.<sprint>.<fix>`. The full notes of every version, with its APK, are
 
 ## Released
 
+### v0.8.1: who completed what
+
+- **Done by.** On a shared trip, each done task shows who completed it ("Done by Lina", or
+  "Done by you"). The names stay on the phone after sharing stops.
+- **Trip Mode tells the driver.** When someone else completes a task while Trip Mode is
+  open, it says so ("Lina completed Bank.") and shows the line on screen.
+
 ### v0.8.0: doing a shared trip together
 
 - **Completions everyone sees.** Completing a task on a shared trip shows it as done on every
@@ -101,7 +108,7 @@ Plans can change. Each item lists the version it is planned for.
 | Version | What |
 |---|---|
 | **v0.9** | **Calendar and repeating trips.** Trips on a calendar, repeat daily, weekly or monthly, and a reminder on a trip's day. |
-| **v0.10** | **History and backups.** A fuller History with who completed what. Export trips to a file and import them again. |
+| **v0.10** | **History and backups.** A fuller History. Export trips to a file and import them again. |
 | **v0.11** | **Road distance.** The suggested order and Trip Mode use distance along roads, falling back to straight-line distance offline. Still distance only, never time. |
 | **v0.12** | **Settings and your data.** More settings, terms and privacy screens, **Delete all my data** (on the phone and on the sharing server), and an About screen. |
 | **v1.0** | **First full release.** Welcome screens on first run, an accessibility pass, a release signing key. |

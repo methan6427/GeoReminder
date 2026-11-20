@@ -168,6 +168,8 @@ A completion normally shows on the other phones within a few seconds.
   no "waiting to send" sign yet.
 - On the code screen, a new participant appears by themselves. If one is missing after a
   connection drop, tap **Refresh participants**.
+- A done task with no **Done by** name: the phone has not loaded that person's nickname yet.
+  Opening the trip with internet loads it.
 - Still missing after opening the trip on both phones with internet? [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose).
 
 ## A shared trip says "Sharing has stopped"
@@ -194,7 +196,7 @@ sharing** on the code screen to edit it again.
 [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose) and include:
 
 - phone model and Android version
-- app version (the release you downloaded, for example v0.8.0)
+- app version (the release you downloaded, for example v0.8.1)
 - what you did, what you expected and what happened
 - for reminders: the task's radius, **Arrive/Leave/Both**, and whether battery was set to
   Unrestricted
