@@ -152,9 +152,6 @@ Plans can change. Each item lists the version it is planned for.
 | **v1.0** | **First full release.** Welcome screens on first run, an accessibility pass, a release signing key. |
 | **v1.1** | **iPhone.** The iPhone version already builds and is being tested on a real iPhone. |
 
-Also planned, as small updates before v0.9:
-
-
 When the app moves to a release signing key (v1.0), Android will need the old version removed
 once before the new one installs. See [Install](install.md#why-the-apk-is-signed-with-a-debug-key).
 
