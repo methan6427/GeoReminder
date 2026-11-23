@@ -3,7 +3,7 @@
 [Back to the README](../README.md)
 
 A technical overview for readers who want to know what is inside the app. The source code
-is in a private repository; this page describes it as of **v0.8.6**.
+is in a private repository; this page describes it as of **v0.9.0**.
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -28,7 +28,7 @@ is in a private repository; this page describes it as of **v0.8.6**.
 | Storage | JSON files in the app's private folder |
 | Languages | English and Arabic, with `flutter_localizations` from the Flutter SDK for the right-to-left layout and Material's own texts |
 | Map | OpenStreetMap through `flutter_map` |
-| Reminders | the operating system's geofencing through `native_geofence`, notifications through `flutter_local_notifications` |
+| Reminders | the operating system's geofencing through `native_geofence`, notifications through `flutter_local_notifications`, time zones through `timezone` |
 | Trip Mode | `geolocator` for position, `flutter_tts` for the phone's own text-to-speech |
 | Your position on the map | `geolocator` for position, `flutter_rotation_sensor` for the compass |
 | Sharing | Supabase (`supabase` package): Postgres functions, anonymous sign-in, row-level security, Realtime |
@@ -114,6 +114,22 @@ stateDiagram-v2
 - **Completing a task is final** too. A done task never goes back to not done.
 - The home screen groups trips by status and date: **Active** (started, or planned for today
   or earlier), **Upcoming** (planned for a later day) and **History** (finished).
+
+## Repeating trips and trip-day reminders
+
+- A trip has a date, an optional time of day, and an optional **repeat rule**: daily, weekly
+  on a set of weekdays, or monthly, every 1 to 99, until an optional end date. Monthly
+  repeats clamp to the last day of shorter months, and leap years are handled.
+- The next day of a repeat is calculated from the rule, never stored as a list, so the
+  Calendar can show any month.
+- **Finishing a repeating trip** writes a finished copy to History and moves the trip itself
+  to its next day with its tasks reset, so its id stays the same.
+- **Trip-day reminders** are scheduled notifications, in the phone's time zone, at the
+  trip's time or 8:00: the next three days of each repeating trip, up to a fixed total,
+  soonest first. They are planned again whenever the trips change or the app starts or comes
+  back, and only the ones that changed are cancelled or added. They use Android's inexact
+  alarms, so no extra permission is needed; the price is that one can come a few minutes
+  late on an idle phone.
 
 ## The waiting rule
 
@@ -297,7 +313,7 @@ migrations with automated SQL tests in the backend repository.
 Every release in this repository is built automatically:
 
 1. Each change to the app goes through automated checks: formatting, static analysis and
-   the full test suite (1006 tests at v0.8.6).
+   the full test suite (1075 tests at v0.9.0).
 2. When a version is merged, the pipeline builds the Android APK and publishes a release
    with its notes in the private source repository.
 3. A scheduled job in this repository copies each new release here, with the same notes,

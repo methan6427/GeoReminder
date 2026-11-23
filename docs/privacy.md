@@ -27,7 +27,7 @@ Everything is kept in the app's private storage on the phone. Other apps can't r
 
 | What | Where |
 |---|---|
-| Trips and their tasks (title, date, colour, status, places, radius, notes, which task waits for which, what is done; on a shared trip also who completed each task and the nicknames of the people on it) | `trips.json`, with a backup copy `trips.json.bak` |
+| Trips and their tasks (title, date, time, how it repeats, colour, status, places, radius, notes, which task waits for which, what is done; on a shared trip also who completed each task and the nicknames of the people on it) | `trips.json`, with a backup copy `trips.json.bak` |
 | Frequent places (name and position) | `places.json`, with a backup copy |
 | The places the phone is currently watching, and the one position where the phone last reported arriving or leaving | `regions.json`, so the places can be watched again after a restart and the nearest tasks are picked first |
 | Which reminders were already shown for the current visit, so a stay does not repeat them | `reminder_log.json` |
@@ -65,12 +65,12 @@ app keeps working.
 |---|---|---|
 | **Location: while using the app** | Asked in the reminder setup | Needed before Android allows the next one. Also used by Trip Mode for the distance to the next stop. |
 | **Location: all the time** | Asked in the reminder setup | The phone's geofencing needs it to notice you arrive at a task's place while the app is closed. Without it there are no reminders; everything else works. |
-| **Notifications** | Asked in the reminder setup (Android 13 and later) | To show the reminders. |
+| **Notifications** | Asked in the reminder setup (Android 13 and later) | To show the reminders, arrival and trip-day ones alike. |
 | **Ignore battery optimisation** | The setup opens the phone's battery settings | So Android does not hold reminders back for long to save battery. Optional. |
 | **Nearby devices** (Bluetooth connect) | Asked in the optional **Connect to your car** step (Android 12 and later) | Only to notice that the phone connected to your car, so the app can offer Trip Mode. It never searches for, finds or connects to devices. Android's own text for this permission mentions finding devices; the app does not do that. |
 | **Full-screen alerts** | Not asked; some Android 14+ phones list it under special app access | To open the arrival alert over the lock screen. Without it, the reminder shows as a normal notification and tapping it opens the alert. |
 | Internet | Not asked | Map pictures, address search and sharing (see above). |
-| Run at start-up | Not asked | To watch the reminder places again after the phone restarts or the app is updated, without opening the app. |
+| Run at start-up | Not asked | To watch the reminder places again, and keep the trip-day reminders, after the phone restarts or the app is updated, without opening the app. |
 | Foreground service (location) and keep awake | Not asked | Used briefly by the geofencing when a reminder arrives, so it can be handled before Android stops the app. |
 | Bluetooth (Android 11 and older) | Not asked | The older name of "Nearby devices" on those versions. |
 

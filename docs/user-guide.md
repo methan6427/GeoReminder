@@ -1,6 +1,6 @@
 # User guide
 
-[Back to the README](../README.md) · This guide describes version 0.8.6.
+[Back to the README](../README.md) · This guide describes version 0.9.0.
 
 1. [The idea in one minute](#the-idea-in-one-minute)
 2. [The main screens](#the-main-screens)
@@ -53,7 +53,7 @@ The bar at the bottom has four tabs:
 |---|---|
 | **Trips** | Your trips, in three tabs: Active, Upcoming and History. The button at the top joins a shared trip. |
 | **Map** | Every active trip's tasks as pins on a map, each trip in its own colour. |
-| **Calendar** | Not used yet. The calendar comes in a later version. |
+| **Calendar** | A month with your trips on their days, repeats included. |
 | **Settings** | Frequent places, Reminders setup, Trip Mode voice, Appearance and Language. |
 
 **Light or dark.** The app follows your phone's light or dark theme. To keep it in one look,
@@ -73,9 +73,31 @@ Names you type (trips, tasks, places) are shown as you typed them.
 
 1. On **My trips**, tap **New trip**.
 2. Enter a **Title** (up to 40 characters), for example "Saturday errands".
-3. The **date** is today unless you change it. Repeating a trip comes in a later version, so
-   the form says "Does not repeat".
+3. The **date** is today unless you change it. Tap **Date and repeat** to change the date,
+   add a time, or make the trip repeat (see [Repeating trips](#repeating-trips)).
 4. Add **Notes** if you like, then tap **Save**.
+
+### Repeating trips
+
+**Date and repeat** on the trip form opens a sheet with:
+
+- **Date**, and an optional **Time**. A trip with a time reminds you at that time on its day
+  (see [Trip-day reminders](#trip-day-reminders)).
+- **Does not repeat**, **Daily**, **Weekly** or **Monthly**. The **−** and **+** buttons set how
+  often: every 2 days, every 3 weeks, every 6 months, up to 99.
+- **Weekly** repeats on the days you tick, for example Mon and Sat. At least one day must be
+  ticked.
+- **Monthly** repeats on the same day of the month. In a shorter month it falls on the last
+  day: a trip on the 31st is on the 30th in November.
+- **Ends**: **Never**, or **On** a date. An end before the next repeat is refused.
+
+**Done** stays off and the sheet says why while something is not right. The form then shows
+the schedule on one line, for example "Sat, 7 Nov · 9:30 AM · Every week on Sat".
+
+**Finishing a repeating trip** keeps a finished copy in History and plans the trip again for
+its next day, with its tasks not done: "Trip finished. Planned again for Sat, 14 Nov". After
+the end date it finishes like any other trip. A shared trip that repeats is not planned
+again; it finishes like any other trip.
 
 ### Where trips are listed
 
@@ -186,6 +208,17 @@ The place picker opens from the task form.
 - A task keeps its own copy of the place. Renaming or deleting a frequent place later does not
   change tasks that already use it.
 
+## The Calendar tab
+
+The Calendar tab shows one month. Each day with a trip has a dot in the trip's colour, and
+repeating trips show on every day they repeat. Today has a ring; the day you pick is filled.
+
+- Below the month are the picked day's trips, with their time and how they repeat. Tap one
+  to open it.
+- The arrows move a month back or forward. **Today** jumps back to today.
+- **New trip** on the Calendar plans the new trip on the picked day.
+- The week starts on the language's first day: Sunday in English, Saturday in Arabic.
+
 ## The Map tab
 
 The Map tab shows the tasks of every active trip at once. Each trip has its own colour, and
@@ -274,6 +307,20 @@ ones, then paused trips, then trips planned for later days.
 updates.
 
 Reminders work offline: geofencing uses the phone's own location and needs no internet.
+
+## Trip-day reminders
+
+On the day of a trip, a notification shows the trip's title and **"Planned for today at
+9:30 AM"**, at the trip's time, or **"Planned for today"** at 8:00 for a trip with no time.
+Tapping it opens the trip.
+
+- They come even when the app is closed, and after the phone restarts.
+- A repeating trip has its next three days planned; more are added as the app is used.
+- Moving, finishing or deleting the trip cancels them.
+- Android may show one a few minutes late while the phone is idle.
+- They have their own notification channel, **Trip days**. You can turn it off in the phone's
+  notification settings for GeoReminder without touching the arrival reminders.
+- After a change of time zone they follow the new one once the app has been opened.
 
 ## Pausing a trip
 
@@ -429,7 +476,7 @@ On the code screen, **Stop sharing** at the bottom asks first and names who will
 - If stopping fails (offline, server waking up), the trip stays shared and you can try again.
 - Only the person who shared the trip can stop sharing it.
 
-### What sharing does not do yet (v0.8.6)
+### What sharing does not do yet (v0.9.0)
 
 - Changes arrive live only while the app is open. A closed phone catches up when it opens.
 - A task completed offline doesn't say it is still waiting to be sent; it just shows as done.
@@ -449,7 +496,6 @@ can't change, and its reminders stop.
 These are being built now; see the [roadmap](roadmap.md):
 
 - Leaving a shared trip.
-- The calendar and repeating trips.
 - History details, and moving trips to another phone with a file.
 - Road distance in the suggested order.
 - Settings for terms, privacy, deleting all data, and an about page.

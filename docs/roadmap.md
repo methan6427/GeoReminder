@@ -12,6 +12,14 @@ numbered `v0.<sprint>.<fix>`. The full notes of every version, with its APK, are
 
 ## Released
 
+### v0.9.0: calendar and repeating trips
+
+- **Repeating trips.** A time of day, and repeat daily, weekly on chosen days or monthly,
+  every 1 to 99, until a date. Finishing one keeps a copy in History and plans it again.
+- **Calendar tab.** A month with each trip's colour on its days, and the picked day's trips.
+- **Trip-day reminders.** A notification on the trip's day, at its time or 8:00, even with
+  the app closed.
+
 ### v0.8.6: an Arabic voice for Trip Mode
 
 - **Arabic speech.** With the app in Arabic, Trip Mode says every prompt in Arabic, with
@@ -145,7 +153,6 @@ Plans can change. Each item lists the version it is planned for.
 
 | Version | What |
 |---|---|
-| **v0.9** | **Calendar and repeating trips.** Trips on a calendar, repeat daily, weekly or monthly, and a reminder on a trip's day. |
 | **v0.10** | **History and backups.** A fuller History. Export trips to a file and import them again. |
 | **v0.11** | **Road distance.** The suggested order and Trip Mode use distance along roads, falling back to straight-line distance offline. Still distance only, never time. |
 | **v0.12** | **Settings and your data.** More settings, terms and privacy screens, **Delete all my data** (on the phone and on the sharing server), and an About screen. |

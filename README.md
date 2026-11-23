@@ -57,7 +57,7 @@ Full steps, including how to allow the install and how to update: **[docs/instal
 | Page | What it covers |
 |---|---|
 | [Install](docs/install.md) | Download, install, update and remove the app. |
-| [User guide](docs/user-guide.md) | Every screen: trips, tasks, waiting tasks, suggested order, map, reminders, pause, Trip Mode, sharing, settings. |
+| [User guide](docs/user-guide.md) | Every screen: trips, repeating trips, the calendar, tasks, waiting tasks, suggested order, map, reminders, pause, Trip Mode, sharing, settings. |
 | [Permissions and privacy](docs/privacy.md) | Each permission the app asks for and why, what is stored and what goes over the internet. |
 | [Troubleshooting](docs/troubleshooting.md) | Late or missing reminders, battery settings, the car not being noticed, sharing problems, and other common questions. |
 | [How it works](docs/how-it-works.md) | Technical overview: architecture, trip states, the waiting rule, the order algorithm, geofencing and storage. |
@@ -65,15 +65,16 @@ Full steps, including how to allow the install and how to update: **[docs/instal
 
 ## Status
 
-GeoReminder is under active development. The current version (**v0.8.6**) works fully on one
+GeoReminder is under active development. The current version (**v0.9.0**) works fully on one
 phone (trips, tasks, map, reminders, Trip Mode) and shares a trip with other phones by a join
 code. On a shared trip, completions show on every phone live, and a task completed with no
 connection is sent when the phone is back online. Each done task shows who completed it.
 The app offers its permission setup on the first launch and has a light and a dark mode.
 The map shows where you are, with the direction you are facing, and every active trip at
 once, each in its own colour. The whole app is available in Arabic, right to left, and Trip Mode speaks
-Arabic too, with a choice of voices.
-Next come a calendar, repeating trips and road distance. See the [roadmap](docs/roadmap.md).
+Arabic too, with a choice of voices. Trips can repeat daily, weekly or monthly, the
+Calendar tab shows them on their days, and the phone reminds you on a trip's day.
+Next come a fuller History with backups, and road distance. See the [roadmap](docs/roadmap.md).
 
 Found a problem? [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose)
 with your phone model, Android version and app version (shown on the Releases page you

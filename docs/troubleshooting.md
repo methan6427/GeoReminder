@@ -8,6 +8,7 @@
 - [The alert does not open over the lock screen](#the-alert-does-not-open-over-the-lock-screen)
 - [Some tasks never remind](#some-tasks-never-remind)
 - [A trip planned for today does not remind](#a-trip-planned-for-today-does-not-remind)
+- [No reminder on a trip's day](#no-reminder-on-a-trips-day)
 - [I can't complete a task](#i-cant-complete-a-task)
 - [My car is not noticed](#my-car-is-not-noticed)
 - [No blue dot on the map](#no-blue-dot-on-the-map)
@@ -88,6 +89,17 @@ A trip planned for a day reminds from the start of that day. Check the trip's da
 dated tomorrow shows under **Upcoming** and says nothing yet. A **paused** trip gives only one
 "Don't forget your trip" reminder per arrival, not its task reminders. Resume it from its
 **More options** menu.
+
+## No reminder on a trip's day
+
+- The trip-day reminder comes at the trip's time, or at 8:00 when it has none. A time that
+  had already passed when you saved the trip gives no reminder that day.
+- Check that the **Trip days** channel is on: phone **Settings > Apps > GeoReminder >
+  Notifications**.
+- Android may hold it back a few minutes while the phone is idle. Battery saver makes this
+  longer; see [Reminders come late](#reminders-come-late).
+- Finished trips and trips with no date never remind.
+- After changing time zone, open the app once so the reminders follow it.
 
 ## I can't complete a task
 
@@ -217,7 +229,7 @@ sharing** on the code screen to edit it again.
 [Open an issue](https://github.com/methan6427/GeoReminder/issues/new/choose) and include:
 
 - phone model and Android version
-- app version (the release you downloaded, for example v0.8.6)
+- app version (the release you downloaded, for example v0.9.0)
 - what you did, what you expected and what happened
 - for reminders: the task's radius, **Arrive/Leave/Both**, and whether battery was set to
   Unrestricted
